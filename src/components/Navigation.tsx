@@ -1,4 +1,4 @@
-import { Sun, Moon, Menu, X, Plant, ShoppingCart, Phone, Mail } from 'lucide-react';
+import { Sun, Moon, Menu, X, Sprout, ShoppingCart, Phone, Mail } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -50,7 +50,7 @@ const Navigation = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-primary/20 rounded-lg blur-xl group-hover:bg-primary/30 transition-all duration-500" />
               <div className="relative w-14 h-14 bg-gradient-to-br from-primary via-eco-leaf to-eco-sun rounded-xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                <Plant className="w-7 h-7 text-white" />
+                <Sprout className="w-7 h-7 text-white" />
               </div>
             </div>
             <div className="hidden md:block">
