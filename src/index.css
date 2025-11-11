@@ -721,12 +721,82 @@ All colors MUST be HSL.
     z-index: 1;
   }
 
-  /* Rounded pill navigation */
+  /* Rounded pill navigation - Luxury café aesthetic */
   .nav-pill {
-    background-color: rgba(44, 36, 32, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 999px;
+    background: rgba(60, 50, 50, 0.6);
+    backdrop-filter: blur(6px);
+    border-radius: 40px;
     padding: 8px 24px;
+  }
+
+  /* Navigation link styling - Luxury café aesthetic */
+  .nav-link {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #0ABAB5;
+  }
+
+  .nav-link.active {
+    color: #0ABAB5;
+  }
+
+  /* Primary button styling - Exact specifications */
+  .btn-primary,
+  a.btn-primary,
+  button.btn-primary {
+    background: linear-gradient(180deg, #0ABAB5 0%, #14CFCB 100%);
+    color: #062020;
+    padding: 12px 28px;
+    border-radius: 28px;
+    font-weight: 600;
+    min-width: 160px;
+    box-shadow: 0 8px 18px rgba(10, 186, 181, 0.12);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-height: 44px; /* Accessibility: minimum tap target */
+    width: auto;
+  }
+
+  .btn-primary:hover,
+  a.btn-primary:hover,
+  button.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(10, 186, 181, 0.16);
+    color: #062020;
+    text-decoration: none;
+  }
+
+  .btn-primary:focus,
+  a.btn-primary:focus,
+  button.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(10, 186, 181, 0.12);
+  }
+
+  .btn-primary:active,
+  a.btn-primary:active,
+  button.btn-primary:active {
+    transform: translateY(-1px);
+  }
+
+  /* Ensure Link wrapper doesn't interfere */
+  a .btn-primary {
+    width: 100%;
   }
 
   /* Hover underline animation - Exact Specifications */
@@ -771,7 +841,7 @@ All colors MUST be HSL.
     justify-content: center;
   }
 
-  /* Hero heading with deep espresso brown - Exact override for perfect visibility */
+  /* Hero heading with pure black - Luxury café aesthetic */
   .hero__title,
   .hero-title,
   .hero h1,
@@ -779,14 +849,14 @@ All colors MUST be HSL.
   .hero .title,
   .hero-heading,
   .hero-content h1 {
-    color: #3b2f2f !important;
-    -webkit-text-fill-color: #3b2f2f !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
     font-family: "Playfair Display", "Cormorant Garamond", "Libre Baskerville", Georgia, serif !important;
     font-weight: 500 !important;
     font-size: clamp(36px, 8vw, 72px) !important;
     line-height: 1.04 !important;
     letter-spacing: -0.02em !important;
-    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.10) !important;
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.1) !important;
     position: relative !important;
     z-index: 60 !important;
     opacity: 1 !important;
@@ -813,10 +883,10 @@ All colors MUST be HSL.
     .hero .title,
     .hero-heading,
     .hero-content h1 {
-      color: #3b2f2f !important;
-      -webkit-text-fill-color: #3b2f2f !important;
+      color: #000000 !important;
+      -webkit-text-fill-color: #000000 !important;
       font-size: clamp(36px, 8vw, 72px) !important;
-      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.10) !important;
+      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.1) !important;
       z-index: 60 !important;
       filter: none;
       background: none !important;
@@ -861,9 +931,9 @@ All colors MUST be HSL.
       overflow-wrap: break-word;
       text-align: center;
       width: 100%;
-      color: #3b2f2f !important;
-      -webkit-text-fill-color: #3b2f2f !important;
-      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.10) !important;
+      color: #000000 !important;
+      -webkit-text-fill-color: #000000 !important;
+      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.1) !important;
       position: relative !important;
       z-index: 60 !important;
       filter: none;

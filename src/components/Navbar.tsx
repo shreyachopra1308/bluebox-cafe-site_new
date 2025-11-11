@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Moon, Sun, ShoppingBag } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useTheme } from "./ThemeProvider";
-import { useCart } from "@/contexts/CartContext";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { theme, setTheme } = useTheme();
-  const { itemCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +17,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { to: "/contact", label: "Locations" },
     { to: "/menu", label: "Menu" },
+    { to: "/shop", label: "Shop" },
     { to: "/reservation", label: "Reservations" },
     { to: "/gallery", label: "Gallery" },
     { to: "/about", label: "About" },
@@ -33,36 +30,9 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const updateDarkMode = () => {
-      if (theme === "dark") {
-        setIsDark(true);
-      } else if (theme === "light") {
-        setIsDark(false);
-      } else {
-        setIsDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
-      }
-    };
-
-    updateDarkMode();
-
-    if (theme === "system") {
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      const handleChange = () => setIsDark(mediaQuery.matches);
-      mediaQuery.addEventListener("change", handleChange);
-      return () => mediaQuery.removeEventListener("change", handleChange);
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
   return (
     <nav
-      className={`fixed top-[12px] left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-[12px] left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled ? "py-4" : "py-6"
       }`}
       role="navigation"
@@ -89,11 +59,27 @@ const Navbar = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-xs sm:text-sm md:text-[14px] font-sans font-normal tracking-[0.06em] uppercase transition-all duration-180 hover-underline ${
+                  className={`text-xs sm:text-sm md:text-[14px] font-['Inter',sans-serif] font-normal tracking-[0.04em] uppercase transition-colors duration-300 ease hover-underline ${
                     location.pathname === link.to
                       ? "text-[#0ABAB5]"
-                      : "text-[#F6F4F2]"
+                      : "text-white"
                   }`}
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    letterSpacing: '0.04em',
+                    fontWeight: 400,
+                    color: location.pathname === link.to ? '#0ABAB5' : '#ffffff'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (location.pathname !== link.to) {
+                      e.currentTarget.style.color = '#0ABAB5';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (location.pathname !== link.to) {
+                      e.currentTarget.style.color = '#ffffff';
+                    }
+                  }}
                   aria-label={`Navigate to ${link.label} page`}
                 >
                   {link.label}
@@ -104,53 +90,19 @@ const Navbar = () => {
             {/* Actions */}
             <div className="hidden md:flex items-center gap-2 lg:gap-4 ml-2 lg:ml-4">
               <button
-                onClick={toggleTheme}
-                className="p-1.5 sm:p-2 rounded-full text-theme-primary hover:text-tiffany hover:bg-theme-primary/10 active:bg-theme-primary/20 focus:outline-none focus:ring-2 focus:ring-tiffany focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-300 ease-out"
-                aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-              >
-                {isDark ? (
-                  <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 hover:rotate-180" />
-                ) : (
-                  <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 hover:rotate-12" />
-                )}
-              </button>
-              <Link
-                to="/shop"
-                className="p-1.5 sm:p-2 rounded-full bg-[#2C2420] text-[#F6F4F2] hover:bg-[#3A3230] hover:text-white hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 transition-all duration-250 ease relative"
-                aria-label="Shopping cart"
-              >
-                <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-250" />
-                {itemCount > 0 && (
-                  <span className="absolute top-0 right-0 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#0ABAB5] text-white text-[10px] sm:text-xs font-sans font-normal rounded-full flex items-center justify-center animate-pulse">
-                    {itemCount}
-                  </span>
-                )}
-              </Link>
-              <Button
                 onClick={handleReserveClick}
-                className="bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
+                className="btn-primary"
                 aria-label="Reserve a table"
               >
-                Reserve
-              </Button>
+                RESERVE NOW
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
               <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full text-theme-primary hover:text-tiffany hover:bg-theme-primary/10 active:bg-theme-primary/20 focus:outline-none focus:ring-2 focus:ring-tiffany focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-300 ease-out"
-                aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-              >
-                {isDark ? (
-                  <Sun className="w-5 h-5 transition-transform duration-300 hover:rotate-180" />
-                ) : (
-                  <Moon className="w-5 h-5 transition-transform duration-300 hover:rotate-12" />
-                )}
-              </button>
-              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 text-theme-primary transition-colors duration-220"
+                className="p-2 text-white transition-colors duration-220"
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMobileMenuOpen}
               >
@@ -174,24 +126,40 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-center text-sm sm:text-[14px] font-sans font-normal tracking-[0.06em] uppercase transition-colors duration-180 hover-underline ${
+                className={`block text-center text-sm sm:text-[14px] font-['Inter',sans-serif] font-normal tracking-[0.04em] uppercase transition-colors duration-300 ease hover-underline ${
                   location.pathname === link.to
                     ? "text-[#0ABAB5]"
-                    : "text-[#F6F4F2]"
+                    : "text-white"
                 }`}
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  letterSpacing: '0.04em',
+                  fontWeight: 400,
+                  color: location.pathname === link.to ? '#0ABAB5' : '#ffffff'
+                }}
+                onMouseEnter={(e) => {
+                  if (location.pathname !== link.to) {
+                    e.currentTarget.style.color = '#0ABAB5';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (location.pathname !== link.to) {
+                    e.currentTarget.style.color = '#ffffff';
+                  }
+                }}
                 aria-label={`Navigate to ${link.label} page`}
               >
                 {link.label}
               </Link>
             ))}
             <div className="pt-4 border-t border-offwhite/20">
-              <Button
+              <button
                 onClick={handleReserveClick}
-                className="w-full bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
+                className="btn-primary w-full"
                 aria-label="Reserve a table"
               >
-                Reserve
-              </Button>
+                RESERVE NOW
+              </button>
             </div>
           </div>
         </div>

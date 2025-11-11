@@ -127,22 +127,19 @@ const Home = () => {
           
           {/* CTAs - Stacked on Mobile, Side-by-Side on Desktop */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center w-full px-2 sm:px-4">
-            <Link to="/reservation" className="w-full sm:w-auto flex justify-center max-w-[280px] sm:max-w-none">
-              <Button
-                className="w-full sm:w-auto bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer shadow-lg"
-                aria-label="Reserve now"
-              >
-                Reserve Now
-              </Button>
+            <Link 
+              to="/reservation" 
+              className="btn-primary w-full sm:w-auto text-center"
+              aria-label="Reserve now"
+            >
+              RESERVE NOW
             </Link>
-            <Link to="/menu" className="w-full sm:w-auto flex justify-center max-w-[280px] sm:max-w-none">
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto bg-white border-2 border-[#2c1f18] text-[#2c1f18] hover:bg-[#f8f6f4] hover:shadow-lg active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#2c1f18]/30 focus:ring-offset-2 px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer shadow-lg"
-                aria-label="Explore menu"
-              >
-                Explore Menu
-              </Button>
+            <Link 
+              to="/menu" 
+              className="btn-primary w-full sm:w-auto text-center"
+              aria-label="Explore menu"
+            >
+              EXPLORE MENU
             </Link>
           </div>
         </div>
