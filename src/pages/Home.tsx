@@ -88,47 +88,67 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen relative">
-      {/* Hero Section - Exact Specifications */}
-      <section className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+    <div className="min-h-screen relative overflow-x-hidden">
+      {/* Hero Section - Fully Responsive with Mobile Optimization */}
+      <section 
+        className="hero-section relative w-full flex items-center justify-center overflow-hidden"
+        style={{
+          minHeight: '100vh',
+          height: '100vh',
+          paddingTop: 'env(safe-area-inset-top, 0px)',
+          width: '100%',
+          maxWidth: '100vw'
+        }}
+      >
+        {/* Background Image - Full Width with 16/9 Aspect Ratio */}
+        <div className="absolute inset-0 z-0 w-full h-full">
           <img
             src={heroImage}
             alt="Elegant café interior with soft natural light"
             className="w-full h-full object-cover object-center"
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              minHeight: '100%'
+            }}
             loading="eager"
-            style={{ minHeight: '100%' }}
           />
           {/* Cream overlay - Exact 45% with gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/[0.18] to-transparent" />
           <div className="absolute inset-0 bg-[#F6F4F2]/45" />
         </div>
 
-        {/* Content - Centered, max-width 900px */}
-        <div className="relative z-20 w-full max-w-[900px] mx-auto px-4 sm:px-6 text-center hero-content">
-          <h1 className="mb-4 sm:mb-6 text-white">
+        {/* Content - Centered, Responsive, Mobile-Safe */}
+        <div 
+          className="relative z-20 w-full max-w-[900px] mx-auto px-4 sm:px-6 md:px-8 text-center hero-content"
+          style={{
+            paddingLeft: 'max(1rem, env(safe-area-inset-left, 1rem))',
+            paddingRight: 'max(1rem, env(safe-area-inset-right, 1rem))'
+          }}
+        >
+          <h1 className="mb-4 sm:mb-5 md:mb-6 text-white text-center">
             A Moment in Blue
           </h1>
           
-          <p className="text-base sm:text-lg md:text-[20px] font-sans font-light text-white/95 mb-8 sm:mb-12 max-w-2xl mx-auto leading-[1.7] px-2">
+          <p className="text-sm sm:text-base md:text-lg lg:text-[20px] font-sans font-light text-white/95 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto leading-[1.7] px-2 sm:px-4">
             Where timeless craftsmanship meets modern calm.
           </p>
           
-          {/* CTAs - Exact Specifications */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
-            <Link to="/reservation" className="w-full sm:w-auto">
+          {/* CTAs - Stacked on Mobile, Side-by-Side on Desktop */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-stretch sm:items-center px-2 sm:px-4 w-full max-w-full">
+            <Link to="/reservation" className="w-full sm:w-auto flex justify-center">
               <Button
-                className="w-full sm:w-auto bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
+                className="w-full sm:w-auto bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer min-w-[200px] sm:min-w-0"
                 aria-label="Reserve now"
               >
                 Reserve Now
               </Button>
             </Link>
-            <Link to="/menu" className="w-full sm:w-auto">
+            <Link to="/menu" className="w-full sm:w-auto flex justify-center">
               <Button
                 variant="outline"
-                className="w-full sm:w-auto bg-transparent border-2 border-[#F6F4F2] text-[#F6F4F2] hover:bg-[#F6F4F2]/10 hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.1)] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#F6F4F2]/30 focus:ring-offset-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
+                className="w-full sm:w-auto bg-transparent border-2 border-[#F6F4F2] text-[#F6F4F2] hover:bg-[#F6F4F2]/10 hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.1)] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#F6F4F2]/30 focus:ring-offset-2 px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer min-w-[200px] sm:min-w-0"
                 aria-label="Explore menu"
               >
                 Explore Menu
