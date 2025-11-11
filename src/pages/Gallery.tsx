@@ -66,14 +66,15 @@ const Gallery = () => {
                 className="break-inside-avoid mb-[10px] cursor-pointer group"
                 onClick={() => openLightbox(index)}
               >
-                <div className="relative overflow-hidden rounded-2xl">
+                <div className="relative overflow-hidden rounded-2xl w-full">
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="w-full h-auto transition-transform duration-220 group-hover:scale-105"
+                    className="w-full h-auto object-cover object-center transition-transform duration-220 group-hover:scale-105"
                     loading="lazy"
+                    style={{ maxWidth: '100%', height: 'auto' }}
                   />
-                  <div className="absolute inset-0 bg-brown/0 group-hover:bg-brown/20 transition-colors duration-220" />
+                  <div className="absolute inset-0 bg-brown/0 group-hover:bg-brown/20 transition-colors duration-220 pointer-events-none" />
                 </div>
               </div>
             ))}

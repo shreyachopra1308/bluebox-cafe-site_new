@@ -42,13 +42,14 @@ const About = () => {
 
             {/* Right Column - Image on Tiffany Blue Background */}
             <div className="bg-tiffany/20 rounded-2xl p-4 sm:p-6 md:p-8 flex items-center justify-center">
-              <img
-                src={storefrontImage}
-                alt="Tiffany & Co. Fifth Avenue storefront"
-                className="w-full h-auto rounded-xl shadow-lg object-cover"
-                loading="lazy"
-                style={{ aspectRatio: '4/3' }}
-              />
+              <div className="w-full aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src={storefrontImage}
+                  alt="Tiffany & Co. Fifth Avenue storefront"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>

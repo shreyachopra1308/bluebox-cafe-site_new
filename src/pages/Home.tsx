@@ -168,14 +168,15 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center">
             {/* Image */}
             <div className="relative group w-full">
-              <div className="absolute inset-0 bg-tiffany/20 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-500" />
-              <img
-                src={storefrontImage}
-                alt="The Blue Box Café interior"
-                className="relative w-full h-auto rounded-2xl shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500 object-cover"
-                loading="lazy"
-                style={{ aspectRatio: '4/3' }}
-              />
+              <div className="absolute inset-0 bg-tiffany/20 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-500 z-0" />
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={storefrontImage}
+                  alt="The Blue Box Café interior"
+                  className="w-full h-full object-cover object-center transform group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
             </div>
 
             {/* Text */}

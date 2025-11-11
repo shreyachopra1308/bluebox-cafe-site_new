@@ -146,12 +146,13 @@ const Menu = () => {
                       <div className="flex flex-col md:flex-row gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-offwhite/10 last:border-0">
                         {/* Image */}
                         {item.image && (
-                          <div className="md:w-36 md:h-36 w-full h-48 sm:h-56 flex-shrink-0 rounded-[12px] overflow-hidden bg-brown/20 shadow-lg transition-all duration-250">
+                          <div className="md:w-36 md:h-36 w-full aspect-square sm:aspect-[4/3] md:aspect-square flex-shrink-0 rounded-[12px] overflow-hidden bg-brown/20 shadow-lg transition-all duration-250">
                             <img
                               src={item.image}
                               alt={item.name}
-                              className="w-full h-full object-cover transition-transform duration-300 ease group-hover:scale-[1.03]"
+                              className="w-full h-full object-cover object-center transition-transform duration-300 ease group-hover:scale-[1.03]"
                               loading="lazy"
+                              style={{ aspectRatio: '1/1' }}
                             />
                           </div>
                         )}

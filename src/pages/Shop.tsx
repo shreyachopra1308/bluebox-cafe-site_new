@@ -94,8 +94,9 @@ const Shop = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-220 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-220 group-hover:scale-105"
                     loading="lazy"
+                    style={{ aspectRatio: '1/1' }}
                   />
                   {/* Hover Overlay - Add to Cart */}
                   <div className="absolute inset-0 bg-brown/80 opacity-0 group-hover:opacity-100 transition-opacity duration-220 flex items-center justify-center">
@@ -213,12 +214,13 @@ const Shop = () => {
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              <img
-                src={selectedProduct.image}
-                alt={selectedProduct.name}
-                className="w-full h-auto rounded-xl shadow-lg object-cover"
-                style={{ aspectRatio: '1/1' }}
-              />
+              <div className="w-full aspect-square rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
               <div>
                 <h2 className="font-serif font-semibold text-white mb-3 sm:mb-4 text-xl sm:text-2xl">
                   {selectedProduct.name}
