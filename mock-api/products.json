@@ -1,0 +1,55 @@
+{
+  "products": [
+    {
+      "id": "gift-box-classic",
+      "name": "Blue Box Gift Box — Classic",
+      "description": "Curated pastries + 2 signature macarons + sachet of house blend (ships in gift packaging)",
+      "price": 1499,
+      "currency": "INR",
+      "image": "/images/coffee.jpg",
+      "category": "gift-box",
+      "shippingDays": "2-4",
+      "giftNoteAvailable": true,
+      "inStock": true,
+      "sku": "BB-GB-CLASSIC-001"
+    },
+    {
+      "id": "gift-box-luxe",
+      "name": "Blue Box Gift Box — Luxe",
+      "description": "Pastry selection, boxed macaron set (6), branded cup & linen napkin",
+      "price": 3499,
+      "currency": "INR",
+      "image": "/images/tea.jpg",
+      "category": "gift-box",
+      "shippingDays": "2-4",
+      "giftNoteAvailable": true,
+      "inStock": true,
+      "sku": "BB-GB-LUXE-001"
+    }
+  ],
+  "categories": [
+    {
+      "id": "gift-box",
+      "name": "Gift Boxes",
+      "description": "Curated gift boxes perfect for any occasion"
+    },
+    {
+      "id": "merchandise",
+      "name": "Merchandise",
+      "description": "Signature Blue Box Café merchandise"
+    },
+    {
+      "id": "pastries",
+      "name": "Pastries",
+      "description": "House-made pastries and sweets"
+    }
+  ],
+  "shipping": {
+    "standardDays": "2-4",
+    "expressDays": "1-2",
+    "freeShippingThreshold": 2000,
+    "standardFee": 200,
+    "expressFee": 500
+  }
+}
+

@@ -1,0 +1,56 @@
+{
+  "reservations": [
+    {
+      "id": "res-001",
+      "date": "2024-12-15",
+      "time": "10:00 AM",
+      "guests": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "phone": "+1-212-555-0100",
+      "specialRequests": "Window seat preferred",
+      "status": "confirmed",
+      "createdAt": "2024-12-10T10:30:00Z"
+    },
+    {
+      "id": "res-002",
+      "date": "2024-12-16",
+      "time": "2:00 PM",
+      "guests": 4,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "+1-212-555-0101",
+      "specialRequests": "Celebrating anniversary",
+      "status": "confirmed",
+      "createdAt": "2024-12-11T14:20:00Z"
+    }
+  ],
+  "availableSlots": [
+    "9:00 AM",
+    "9:30 AM",
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "1:00 PM",
+    "1:30 PM",
+    "2:00 PM",
+    "2:30 PM",
+    "3:00 PM",
+    "3:30 PM",
+    "4:00 PM",
+    "4:30 PM",
+    "5:00 PM",
+    "5:30 PM",
+    "6:00 PM"
+  ],
+  "policies": {
+    "cancellationHours": 6,
+    "cancellationFee": "small fee",
+    "arrivalWindow": "5-10 minutes early",
+    "holdTime": "15 minutes"
+  }
+}
+
