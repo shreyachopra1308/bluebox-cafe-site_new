@@ -42,11 +42,11 @@ const Reservation = () => {
     <div className="min-h-screen relative pt-24">
       {/* Hero */}
       <section className="section-spacing border-b border-theme">
-        <div className="container mx-auto px-6 max-w-[1240px] text-center">
-          <h1 className="mb-8">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px] text-center">
+          <h1 className="mb-6 sm:mb-8">
             Reservations
           </h1>
-          <p className="text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-relaxed px-2">
             Reserve your moment at The Blue Box Café
           </p>
         </div>
@@ -54,11 +54,11 @@ const Reservation = () => {
 
       {/* Booking Form */}
       <section className="section-spacing">
-        <div className="container mx-auto px-6 max-w-2xl">
+        <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
           <div className="section-card bg-theme-card">
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
               {/* Date & Time */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label
                     htmlFor="date"

@@ -68,10 +68,10 @@ const Navbar = () => {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="container mx-auto px-6 max-w-[900px]">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[900px]">
         <div className="flex items-center justify-center">
           {/* Rounded Pill Navigation - Exact Specifications */}
-          <div className="nav-pill flex items-center gap-6 lg:gap-8">
+          <div className="nav-pill flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 w-full sm:w-auto justify-between sm:justify-center">
             {/* Logo */}
             <Link
               to="/"
@@ -84,12 +84,12 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Navigation - Centered Links */}
-            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-[14px] font-sans font-normal tracking-[0.06em] uppercase transition-all duration-180 hover-underline ${
+                  className={`text-xs sm:text-sm md:text-[14px] font-sans font-normal tracking-[0.06em] uppercase transition-all duration-180 hover-underline ${
                     location.pathname === link.to
                       ? "text-[#0ABAB5]"
                       : "text-[#F6F4F2]"
@@ -102,33 +102,33 @@ const Navbar = () => {
             </div>
 
             {/* Actions */}
-            <div className="hidden md:flex items-center gap-4 ml-4">
+            <div className="hidden md:flex items-center gap-2 lg:gap-4 ml-2 lg:ml-4">
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-full text-theme-primary hover:text-tiffany hover:bg-theme-primary/10 active:bg-theme-primary/20 focus:outline-none focus:ring-2 focus:ring-tiffany focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-300 ease-out"
+                className="p-1.5 sm:p-2 rounded-full text-theme-primary hover:text-tiffany hover:bg-theme-primary/10 active:bg-theme-primary/20 focus:outline-none focus:ring-2 focus:ring-tiffany focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-300 ease-out"
                 aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
               >
                 {isDark ? (
-                  <Sun className="w-4 h-4 transition-transform duration-300 hover:rotate-180" />
+                  <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 hover:rotate-180" />
                 ) : (
-                  <Moon className="w-4 h-4 transition-transform duration-300 hover:rotate-12" />
+                  <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 hover:rotate-12" />
                 )}
               </button>
               <Link
                 to="/shop"
-                className="p-2 rounded-full bg-[#2C2420] text-[#F6F4F2] hover:bg-[#3A3230] hover:text-white hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 transition-all duration-250 ease relative"
+                className="p-1.5 sm:p-2 rounded-full bg-[#2C2420] text-[#F6F4F2] hover:bg-[#3A3230] hover:text-white hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 transition-all duration-250 ease relative"
                 aria-label="Shopping cart"
               >
-                <ShoppingBag className="w-4 h-4 transition-transform duration-250" />
+                <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-250" />
                 {itemCount > 0 && (
-                  <span className="absolute top-0 right-0 w-4 h-4 bg-[#0ABAB5] text-white text-xs font-sans font-normal rounded-full flex items-center justify-center animate-pulse">
+                  <span className="absolute top-0 right-0 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#0ABAB5] text-white text-[10px] sm:text-xs font-sans font-normal rounded-full flex items-center justify-center animate-pulse">
                     {itemCount}
                   </span>
                 )}
               </Link>
               <Button
                 onClick={handleReserveClick}
-                className="bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white px-4 py-2 rounded-full text-xs font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
+                className="bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
                 aria-label="Reserve a table"
               >
                 Reserve
@@ -167,14 +167,14 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden mt-4 nav-pill mx-6 animate-fade-in">
-          <div className="py-6 space-y-4">
+        <div className="md:hidden mt-4 nav-pill mx-4 sm:mx-6 animate-fade-in">
+          <div className="py-4 sm:py-6 space-y-3 sm:space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-center text-[14px] font-sans font-normal tracking-[0.06em] uppercase transition-colors duration-180 hover-underline ${
+                className={`block text-center text-sm sm:text-[14px] font-sans font-normal tracking-[0.06em] uppercase transition-colors duration-180 hover-underline ${
                   location.pathname === link.to
                     ? "text-[#0ABAB5]"
                     : "text-[#F6F4F2]"
@@ -187,7 +187,7 @@ const Navbar = () => {
             <div className="pt-4 border-t border-offwhite/20">
               <Button
                 onClick={handleReserveClick}
-                className="w-full bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white py-3 rounded-full text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
+                className="w-full bg-[#0ABAB5] hover:bg-[#14CFCB] hover:shadow-lg hover:-translate-y-[3px] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[rgba(10,186,181,0.22)] focus:ring-offset-2 text-white py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
                 aria-label="Reserve a table"
               >
                 Reserve

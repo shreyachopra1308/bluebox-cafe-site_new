@@ -7,8 +7,8 @@ const About = () => {
     <div className="min-h-screen relative pt-24">
       {/* Hero */}
       <section className="section-spacing border-b border-theme">
-        <div className="container mx-auto px-6 max-w-[1200px] text-center">
-          <h1 className="mb-8">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px] text-center">
+          <h1 className="mb-6 sm:mb-8">
             About
           </h1>
         </div>
@@ -16,8 +16,8 @@ const About = () => {
 
       {/* Two-Column Layout */}
       <section className="section-spacing">
-        <div className="container mx-auto px-6 max-w-[1240px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
             {/* Left Column - Text on Cream */}
             <div className="space-y-8">
               <h2 className="mb-6 text-white font-serif font-medium tracking-[0.02em] text-[clamp(28px,3.5vw,40px)] leading-[1.3]">
@@ -41,12 +41,13 @@ const About = () => {
             </div>
 
             {/* Right Column - Image on Tiffany Blue Background */}
-            <div className="bg-tiffany/20 rounded-2xl p-8 flex items-center justify-center">
+            <div className="bg-tiffany/20 rounded-2xl p-4 sm:p-6 md:p-8 flex items-center justify-center">
               <img
                 src={storefrontImage}
                 alt="Tiffany & Co. Fifth Avenue storefront"
-                className="w-full h-auto rounded-xl shadow-lg"
+                className="w-full h-auto rounded-xl shadow-lg object-cover"
                 loading="lazy"
+                style={{ aspectRatio: '4/3' }}
               />
             </div>
           </div>
@@ -55,8 +56,8 @@ const About = () => {
 
       {/* CTA Section */}
       <section className="section-spacing border-t border-theme bg-theme-section/50">
-        <div className="container mx-auto px-6 max-w-[1240px] text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px] text-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link to="/reservation">
               <Button
                 className="bg-tiffany hover:bg-tiffany-light hover:shadow-md active:bg-tiffany-dark active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-tiffany/30 focus:ring-offset-2 text-white px-8 py-4 rounded-full text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"

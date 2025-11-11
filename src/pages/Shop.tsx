@@ -70,11 +70,11 @@ const Shop = () => {
     <div className="min-h-screen relative pt-24">
       {/* Hero */}
       <section className="section-spacing border-b border-offwhite/10">
-        <div className="container mx-auto px-6 max-w-[1240px] text-center">
-          <h1 className="mb-8">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px] text-center">
+          <h1 className="mb-6 sm:mb-8">
             Shop
           </h1>
-          <p className="text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-relaxed px-2">
             Curated gift boxes and signature merchandise
           </p>
         </div>
@@ -82,15 +82,15 @@ const Shop = () => {
 
       {/* Products Grid */}
       <section className="section-spacing">
-        <div className="container mx-auto px-6 max-w-[1240px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {products.map((product) => (
               <div
                 key={product.id}
                 className="group relative section-card bg-cream/10 backdrop-blur-sm border border-offwhite/10 hover-lift cursor-pointer"
                 onClick={() => setSelectedProduct(product)}
               >
-                <div className="relative overflow-hidden rounded-xl mb-4 aspect-square bg-brown/10">
+                <div className="relative overflow-hidden rounded-xl mb-4 aspect-square bg-brown/10 w-full">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -125,7 +125,7 @@ const Shop = () => {
 
       {/* Cart Sidebar */}
       {itemCount > 0 && (
-        <div className="fixed bottom-0 right-0 left-0 md:left-auto md:w-96 bg-theme-section border-t md:border-l border-theme p-6 shadow-lg z-50">
+        <div className="fixed bottom-0 right-0 left-0 md:left-auto md:w-96 bg-theme-section border-t md:border-l border-theme p-4 sm:p-6 shadow-lg z-50 max-h-[80vh] md:max-h-none overflow-y-auto">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-serif font-normal text-white text-lg">
               Cart ({itemCount})
@@ -199,33 +199,34 @@ const Shop = () => {
       {/* Product Modal */}
       {selectedProduct && (
         <div
-          className="fixed inset-0 bg-theme-section/95 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+          className="fixed inset-0 bg-theme-section/95 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
           onClick={() => setSelectedProduct(null)}
         >
           <div
-            className="bg-theme-card max-w-2xl w-full rounded-2xl p-8 shadow-2xl"
+            className="bg-theme-card max-w-2xl w-full rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 text-white hover:text-tiffany transition-colors duration-300"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:text-tiffany transition-colors duration-300 z-10"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.name}
-                className="w-full h-auto rounded-xl shadow-lg"
+                className="w-full h-auto rounded-xl shadow-lg object-cover"
+                style={{ aspectRatio: '1/1' }}
               />
               <div>
-                <h2 className="font-serif font-semibold text-white mb-4 text-2xl">
+                <h2 className="font-serif font-semibold text-white mb-3 sm:mb-4 text-xl sm:text-2xl">
                   {selectedProduct.name}
                 </h2>
-                <p className="font-sans font-light text-[rgba(246,244,242,0.9)] mb-6 leading-relaxed">
+                <p className="font-sans font-light text-[rgba(246,244,242,0.9)] mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                   {selectedProduct.description}
                 </p>
-                <p className="font-serif font-semibold text-gold-light mb-6 text-2xl">
+                <p className="font-serif font-semibold text-gold-light mb-4 sm:mb-6 text-xl sm:text-2xl">
                   ₹{selectedProduct.price.toLocaleString()}
                 </p>
                 <Button
@@ -233,7 +234,7 @@ const Shop = () => {
                     handleAddToCart(selectedProduct);
                     setSelectedProduct(null);
                   }}
-                  className="w-full bg-tiffany hover:bg-tiffany-light hover:shadow-md active:bg-tiffany-dark active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-tiffany/30 focus:ring-offset-2 text-white py-3 rounded-full font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
+                  className="w-full bg-tiffany hover:bg-tiffany-light hover:shadow-md active:bg-tiffany-dark active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-tiffany/30 focus:ring-offset-2 text-white py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-sans font-normal tracking-[0.05em] uppercase transition-all duration-250 ease cursor-pointer"
                 >
                   Add to Cart
                 </Button>

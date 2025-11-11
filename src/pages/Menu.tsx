@@ -115,11 +115,11 @@ const Menu = () => {
     <div className="min-h-screen relative pt-24">
       {/* Hero Header - Perfect Styling */}
       <section className="section-spacing border-b border-offwhite/10">
-        <div className="container mx-auto px-6 max-w-[1240px] text-center">
-          <h1 className="mb-8">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px] text-center">
+          <h1 className="mb-6 sm:mb-8">
             Menu
           </h1>
-          <p className="text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-[1.7]">
+          <p className="text-sm sm:text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-[1.7] px-2">
             A short, considered menu — perfect for sharing or savoring alone.
           </p>
         </div>
@@ -127,26 +127,26 @@ const Menu = () => {
 
       {/* Menu Sections */}
       <section className="section-spacing">
-        <div className="container mx-auto px-6 max-w-[1240px]">
-          <div className="space-y-20">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
+          <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {menuSections.map((section) => (
               <div key={section.title} data-section className="fade-up">
                 {/* Section Header - Perfect Styling */}
-                <h2 className="mb-12 text-white font-serif font-medium tracking-[0.02em] text-[clamp(28px,3.5vw,40px)] leading-[1.3] text-center uppercase">
+                <h2 className="mb-8 sm:mb-12 text-white font-serif font-medium tracking-[0.02em] text-[clamp(24px,3.5vw,40px)] leading-[1.3] text-center uppercase">
                   {section.title}
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
                   {section.items.map((item, index) => (
                     <div
                       key={`${item.name}-${index}`}
                       className="group transition-transform duration-250 ease hover:-translate-y-0.5"
                     >
                       {/* Menu Item Card with Image */}
-                      <div className="flex flex-col md:flex-row gap-6 pb-8 border-b border-offwhite/10 last:border-0">
+                      <div className="flex flex-col md:flex-row gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-offwhite/10 last:border-0">
                         {/* Image */}
                         {item.image && (
-                          <div className="md:w-36 md:h-36 w-full h-56 flex-shrink-0 rounded-[12px] overflow-hidden bg-brown/20 shadow-lg transition-all duration-250">
+                          <div className="md:w-36 md:h-36 w-full h-48 sm:h-56 flex-shrink-0 rounded-[12px] overflow-hidden bg-brown/20 shadow-lg transition-all duration-250">
                             <img
                               src={item.image}
                               alt={item.name}
@@ -159,20 +159,20 @@ const Menu = () => {
                         {/* Content */}
                         <div className="flex-1 flex flex-col justify-between">
                           <div>
-                            <div className="flex items-start gap-2 mb-3">
-                              <h3 className="font-serif font-semibold text-white text-lg md:text-xl">
+                            <div className="flex items-start gap-2 mb-2 sm:mb-3">
+                              <h3 className="font-serif font-semibold text-white text-base sm:text-lg md:text-xl">
                                 {item.name}
                               </h3>
                               {item.chefPick && (
-                                <Star className="w-5 h-5 text-gold fill-current flex-shrink-0 mt-0.5" />
+                                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-gold fill-current flex-shrink-0 mt-0.5" />
                               )}
                             </div>
-                            <p className="text-sm md:text-base font-sans font-light text-[rgba(246,244,242,0.9)] leading-[1.7] mb-4 group-hover:text-white transition-colors duration-250">
+                            <p className="text-xs sm:text-sm md:text-base font-sans font-light text-[rgba(246,244,242,0.9)] leading-[1.7] mb-3 sm:mb-4 group-hover:text-white transition-colors duration-250">
                               {item.description}
                             </p>
                           </div>
                           <div className="text-left md:text-right">
-                            <span className="font-serif font-medium text-gold-light text-lg md:text-xl">
+                            <span className="font-serif font-medium text-gold-light text-base sm:text-lg md:text-xl">
                               {item.price}
                             </span>
                           </div>
@@ -189,8 +189,8 @@ const Menu = () => {
 
       {/* Microcopy */}
       <section className="section-spacing border-t border-offwhite/10">
-        <div className="container mx-auto px-6 max-w-[1240px]">
-          <p className="text-sm font-sans font-light text-theme-muted text-center leading-[1.7]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
+          <p className="text-xs sm:text-sm font-sans font-light text-theme-muted text-center leading-[1.7] px-2">
             All dishes may contain nuts. Vegan and gluten-free options available — ask our team.
           </p>
         </div>

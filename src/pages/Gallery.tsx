@@ -46,11 +46,11 @@ const Gallery = () => {
     <div className="min-h-screen relative pt-24">
       {/* Hero */}
       <section className="section-spacing border-b border-offwhite/10">
-        <div className="container mx-auto px-6 max-w-[1240px] text-center">
-          <h1 className="mb-8">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px] text-center">
+          <h1 className="mb-6 sm:mb-8">
             Gallery
           </h1>
-          <p className="text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base font-sans font-light text-theme-secondary max-w-2xl mx-auto leading-relaxed px-2">
             A glimpse into The Blue Box Café experience
           </p>
         </div>
@@ -58,8 +58,8 @@ const Gallery = () => {
 
       {/* Masonry Grid - 10px gutter */}
       <section className="section-spacing">
-        <div className="container mx-auto px-6 max-w-[1240px]">
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-[10px] space-y-[10px]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-2 sm:gap-[10px] space-y-2 sm:space-y-[10px]">
             {galleryImages.map((img, index) => (
               <div
                 key={index}
@@ -84,47 +84,47 @@ const Gallery = () => {
       {/* Lightbox */}
       {lightboxImage && (
         <div
-          className="fixed inset-0 bg-brown/95 z-50 flex items-center justify-center p-6"
+          className="fixed inset-0 bg-brown/95 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
           onClick={closeLightbox}
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 text-offwhite hover:text-tiffany transition-colors duration-220 z-10"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-offwhite hover:text-tiffany transition-colors duration-220 z-10"
             aria-label="Close lightbox"
           >
-            <X className="w-8 h-8" />
+            <X className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
           <button
             onClick={(e) => {
               e.stopPropagation();
               prevImage();
             }}
-            className="absolute left-6 text-offwhite hover:text-tiffany transition-colors duration-220 z-10"
+            className="absolute left-4 sm:left-6 text-offwhite hover:text-tiffany transition-colors duration-220 z-10"
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-8 h-8" />
+            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
           <button
             onClick={(e) => {
               e.stopPropagation();
               nextImage();
             }}
-            className="absolute right-6 text-offwhite hover:text-tiffany transition-colors duration-220 z-10"
+            className="absolute right-4 sm:right-6 text-offwhite hover:text-tiffany transition-colors duration-220 z-10"
             aria-label="Next image"
           >
-            <ChevronRight className="w-8 h-8" />
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
           <div
-            className="max-w-5xl w-full"
+            className="max-w-5xl w-full my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <img
               src={lightboxImage}
               alt={galleryImages[lightboxIndex].alt}
-              className="max-w-full max-h-[90vh] object-contain mx-auto rounded-2xl"
+              className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain mx-auto rounded-2xl"
             />
             {galleryImages[lightboxIndex].caption && (
-              <p className="text-center text-offwhite mt-4 font-sans font-light text-sm">
+              <p className="text-center text-offwhite mt-3 sm:mt-4 font-sans font-light text-xs sm:text-sm px-2">
                 {galleryImages[lightboxIndex].caption}
               </p>
             )}
