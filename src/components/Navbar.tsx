@@ -17,9 +17,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { to: "/contact", label: "Locations" },
     { to: "/menu", label: "Menu" },
     { to: "/shop", label: "Shop" },
+    { to: "/contact", label: "Contact" },
     { to: "/reservation", label: "Reservations" },
     { to: "/gallery", label: "Gallery" },
     { to: "/about", label: "About" },

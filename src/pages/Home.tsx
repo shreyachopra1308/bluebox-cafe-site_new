@@ -88,8 +88,28 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
-      {/* Hero Section - Clean Full-Width Background, No Overlays */}
+    <div 
+      className="min-h-screen relative overflow-x-hidden"
+      style={{
+        backgroundImage: 'url("/images/background.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundColor: '#1b1411'
+      }}
+    >
+      {/* Background overlay for text readability */}
+      <div 
+        style={{
+          position: 'fixed',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.18)',
+          pointerEvents: 'none',
+          zIndex: 1
+        }}
+      />
+      {/* Hero Section - Hero Image Overlay on Background */}
       <section 
         className="hero-section relative w-full flex items-center justify-center overflow-hidden"
         style={{
@@ -103,7 +123,9 @@ const Home = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'scroll'
+          backgroundAttachment: 'scroll',
+          position: 'relative',
+          zIndex: 10
         }}
       >
         {/* Content - Centered, Responsive, Mobile-Safe */}
@@ -150,6 +172,7 @@ const Home = () => {
         id="about-section"
         data-section
         className="section-spacing bg-theme-section fade-up relative"
+        style={{ position: 'relative', zIndex: 10 }}
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center">
@@ -189,6 +212,7 @@ const Home = () => {
         id="timeline-section"
         data-section
         className="section-spacing bg-theme-section fade-up"
+        style={{ position: 'relative', zIndex: 10 }}
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
           <h2 className="text-center mb-12 sm:mb-16 md:mb-20 text-white font-serif font-medium tracking-[0.02em] text-[clamp(24px,3.5vw,40px)] leading-[1.3] uppercase">
@@ -218,6 +242,7 @@ const Home = () => {
         id="menu-preview-section"
         data-section
         className="section-spacing bg-theme-section fade-up relative"
+        style={{ position: 'relative', zIndex: 10 }}
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
           <h2 className="text-center mb-12 sm:mb-16 text-white font-serif font-medium tracking-[0.02em] text-[clamp(24px,3.5vw,40px)] leading-[1.3] uppercase">
@@ -279,6 +304,7 @@ const Home = () => {
         id="shop-preview-section"
         data-section
         className="section-spacing bg-theme-section fade-up"
+        style={{ position: 'relative', zIndex: 10 }}
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-[1240px]">
           <h2 className="text-center mb-12 sm:mb-16 text-white font-serif font-medium tracking-[0.02em] text-[clamp(24px,3.5vw,40px)] leading-[1.3] uppercase">
